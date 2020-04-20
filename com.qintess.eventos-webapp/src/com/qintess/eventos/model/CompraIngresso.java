@@ -1,7 +1,6 @@
 package com.qintess.eventos.model;
 
 import javax.persistence.CascadeType;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -16,14 +15,11 @@ public class CompraIngresso {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@EmbeddedId
 	@ManyToOne(fetch = FetchType.LAZY
 				,cascade = CascadeType.ALL)
 	@MapsId("ClienteId")
 	private Cliente cliente;
 	
-	
-	@EmbeddedId
 	@ManyToOne(fetch = FetchType.LAZY
 				,cascade = CascadeType.ALL)
 	@MapsId("EventosId")

@@ -3,6 +3,8 @@ package com.qintess.eventos.config;
 
 import java.util.Properties;
 
+import javax.sql.DataSource;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -25,12 +27,12 @@ public class HibernateConfig {
 	}
 	
 	@Bean
-	public DriverManagerDataSource dataSource() {
+	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setUrl("jdbc:postgresql://localhost:56137/Eventos");
 		dataSource.setDriverClassName("org.postgresql.Driver");
-		dataSource.setUsername("postegres");
-		dataSource.setPassword("12345678");
+		dataSource.setUrl ("jdbc:postgresql://localhost/Eventos");
+		dataSource.setUsername("postgres");
+		dataSource.setPassword("postgre123");
 		
 		return dataSource;
 	}
@@ -46,9 +48,8 @@ public class HibernateConfig {
 	private final Properties hibernateProrperties() {
 		Properties hibernateProperties = new Properties();
 		hibernateProperties.setProperty("hibernate.hdm2ddl.auto", "create-drop");
-		hibernateProperties.setProperty("hibernate.dialect","org.hibernate.dialect.Dialect");
+		hibernateProperties.setProperty("hibernate.dialect","org.hibernate.dialect.PostgreSQL95Dialect");
 		hibernateProperties.setProperty("hibernate.show_sql","true");
-		hibernateProperties.setProperty("hibernate.jdbc.time_zone","UTC");
 		
 		return hibernateProperties;	
 	}
