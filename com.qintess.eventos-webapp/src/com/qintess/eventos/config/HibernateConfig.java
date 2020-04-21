@@ -30,10 +30,10 @@ public class HibernateConfig {
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("org.postgresql.Driver");
-	dataSource.setUrl ("jdbc:postgresql://localhost:5432/postgres");
+		dataSource.setUrl ("jdbc:postgresql://localhost:5432/Eventos");
 		dataSource.setUsername("postgres");
 		dataSource.setPassword("postgre123");
-		
+
 		return dataSource;
 	}
 	
@@ -47,9 +47,11 @@ public class HibernateConfig {
 	
 	private final Properties hibernateProrperties() {
 		Properties hibernateProperties = new Properties();
-		hibernateProperties.setProperty("hibernate.hdm2ddl.auto", "create-drop");
+		hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "create");
 		hibernateProperties.setProperty("hibernate.dialect","org.hibernate.dialect.PostgreSQLDialect");
 		hibernateProperties.setProperty("hibernate.show_sql","true");
+		
+		
 		
 		return hibernateProperties;	
 	}

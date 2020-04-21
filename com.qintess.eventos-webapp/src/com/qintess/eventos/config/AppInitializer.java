@@ -6,7 +6,6 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() { // esse metodo configura componentes externos tipo hibernate
-		
 		return new Class[] {
 				HibernateConfig.class
 		};
