@@ -13,14 +13,18 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() { // esse metodo configura o mapeamento do mvc spring
-
-		return null;
+		return new Class[]{				
+			WebMvcConfig.class	
+		};
+		
+		
 	}
 
 	@Override
 	protected String[] getServletMappings() { // esse metodo configura o mapeamento servlet do spring
-		
-		return null;
+		return new String[] {
+			"/"
+		};
 	}
 	
 	
