@@ -1,10 +1,10 @@
 package com.qintess.eventos.model;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -15,10 +15,8 @@ import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Evento implements Serializable {
+public class Evento{
 
-	private static final long serialVersionUID = 1L;
-	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
@@ -35,15 +33,20 @@ public class Evento implements Serializable {
 	
 	private String nome;
 	
-	private String descrição;
+	private String descricao;
 	
 	private String data;
 		
 	private int quantidadeIngressos;
+
+	private Long idCasaDeShowEvento;
 	
-	private double preço;
+	private double preco;
 	
 	private int quantidadeIngressosDisponiveis;
+	
+	@Column(columnDefinition="bytea")
+	private byte[] imagemEvento;
 	
 
 	public int getId() {
@@ -70,12 +73,12 @@ public class Evento implements Serializable {
 		this.nome = nome;
 	}
 
-	public String getDescrição() {
-		return descrição;
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setDescrição(String descrição) {
-		this.descrição = descrição;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
 	public String getData() {
@@ -94,12 +97,12 @@ public class Evento implements Serializable {
 		this.quantidadeIngressos = quantidadeIngressos;
 	}
 
-	public double getPreço() {
-		return preço;
+	public double getPreco() {
+		return preco;
 	}
 
-	public void setPreço(double preço) {
-		this.preço = preço;
+	public void setPreco(double preco) {
+		this.preco = preco;
 	}
 
 	public int getQuantidadeIngressosDisponiveis() {
@@ -110,8 +113,30 @@ public class Evento implements Serializable {
 		this.quantidadeIngressosDisponiveis = quantidadeIngressosDisponiveis;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public Long getIdCasaDeShowEvento() {
+		return idCasaDeShowEvento;
 	}
+
+	public void setIdCasaDeShowEvento(Long idCasaDeShowEvento) {
+		this.idCasaDeShowEvento = idCasaDeShowEvento;
+	}
+
+	public List<CompraIngresso> getListaIngressos() {
+		return listaIngressos;
+	}
+
+	public void setListaIngressos(List<CompraIngresso> listaIngressos) {
+		this.listaIngressos = listaIngressos;
+	}
+
+	public byte[] getImagemEvento() {
+		return imagemEvento;
+	}
+
+	public void setImagemEvento(byte[] imagemEvento) {
+		this.imagemEvento = imagemEvento;
+	}
+	
+	
 	
 }

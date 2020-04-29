@@ -1,9 +1,11 @@
 package com.qintess.eventos.model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -15,29 +17,45 @@ import javax.persistence.OneToMany;
 public class CasaDeShow {
 
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(nullable = false)
 	private int id;
 	
+	@Column(nullable = false)
 	private String nome;
 	
+	@Column(nullable = false)
 	private String logradouro;
 	
+	@Column(nullable = false)
 	private int numero;
 	
+	@Column(nullable = false)
 	private String bairro;
 	
+	@Column(nullable = false)
 	private String cidade;
 	
+	@Column(nullable = false)
 	private String estado;
 	
+	@Column(nullable = false)
 	private int capacidadeTotal;
 	
-	
+	@Column(columnDefinition="bytea")
+	private byte[] imagemCasadeShow;
+
 	@OneToMany(cascade = CascadeType.ALL
 			   ,fetch = FetchType.LAZY
 			   ,mappedBy = "casaDeShow"
 			   ,orphanRemoval = true)			   
 	List<Evento> listaEventos = new ArrayList<>();
 
+	@Override
+	public String toString() {
+		return "CasaDeShow [id=" + id + ", nome=" + nome + ", logradouro=" + logradouro + ", numero=" + numero
+				+ ", bairro=" + bairro + ", cidade=" + cidade + ", estado=" + estado + ", capacidadeTotal="
+				+ capacidadeTotal + ", imagemCasadeShow=" + Arrays.toString(imagemCasadeShow) + "]";
+	}
 
 	public int getId() {
 		return id;
@@ -116,6 +134,16 @@ public class CasaDeShow {
 
 	public void setCapacidadeTotal(int capacidadeTotal) {
 		this.capacidadeTotal = capacidadeTotal;
+	}
+
+	
+	public byte[] getImagemCasadeShow() {
+		return imagemCasadeShow;
+	}
+
+
+	public void setImagemCasadeShow(byte[] imagemCasadeShow) {
+		this.imagemCasadeShow = imagemCasadeShow;
 	}
 
 

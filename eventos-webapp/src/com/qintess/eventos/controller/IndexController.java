@@ -10,6 +10,12 @@ public class IndexController {
 	public String index() {
 		return "index";
 	}
+	
+	
+	@RequestMapping("/menu")
+	public String menu() {
+		return "menu";
+	}
 
 	
 	

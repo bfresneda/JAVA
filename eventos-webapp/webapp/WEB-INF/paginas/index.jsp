@@ -8,9 +8,12 @@
 <spring:url value="casadeshow/" var="casadeshow"></spring:url>
 </head>
 <body>
-	<h1> Hello World! index eventos</h1>
-	<hr />
-	<a href="${casadeshow}"> Cadastrar Casas de show</a>
+	<jsp:include page="${request.contextPath}/menu"></jsp:include>
+		
+
+		
+
+		<a href="${casadeshow}"> Cadastrar Casas de show</a>
 	
 </body>
 </html>
