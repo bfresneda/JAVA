@@ -44,8 +44,8 @@ public class CasaDeShow {
 	@Column(columnDefinition="bytea")
 	private byte[] imagemCasadeShow;
 
-	@OneToMany(cascade = CascadeType.ALL
-			   ,fetch = FetchType.LAZY
+	@OneToMany(fetch = FetchType.EAGER
+			   ,cascade = CascadeType.ALL
 			   ,mappedBy = "casaDeShow"
 			   ,orphanRemoval = true)			   
 	List<Evento> listaEventos = new ArrayList<>();

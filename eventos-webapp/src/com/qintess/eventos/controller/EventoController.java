@@ -32,6 +32,7 @@ public class EventoController {
 		
 		List<CasaDeShow> ListaCasasDeShows = dao.buscarTodos(CasaDeShow.class);
 		model.addAttribute("ListaCasasDeShows",ListaCasasDeShows);
+		
 		return "evento";
 	}
 
@@ -40,13 +41,13 @@ public class EventoController {
 	public String salvar(@ModelAttribute Evento evento,
 						 @RequestParam(required = false,value="Cancelar") String Cancelar,
 						 @RequestParam(required = false,value="imagemEvento") MultipartFile imagemEvento,
-						 @RequestParam(required = false,value="idCasaDeShow")@PathVariable Long idCasaDeShow,
+						 @RequestParam(required = false,value="casaDeShow") Integer casaDeShow,
 						 RedirectAttributes redirectAtt	) {
 		byte [] bImagem;
 		try {
-			
-			CasaDeShow casaDeShow = dao.buscarPorId(CasaDeShow.class,idCasaDeShow);
-			evento.setCasaDeShow(casaDeShow);
+			CasaDeShow casaDeShowE = dao.buscarPorId(CasaDeShow.class ,casaDeShow);
+			evento.setCasaDeShow(casaDeShowE);
+			System.out.println("id casa de show form"+ casaDeShow);
 
 			if(Cancelar != null) {
 				return "redirect:/evento";
@@ -71,7 +72,7 @@ public class EventoController {
 	}
 	
 	@RequestMapping("/alterar/{id}")
-	public String alterar(@PathVariable(name="id") Long id, Model model,
+	public String alterar(@PathVariable(name="id") Integer id, Model model,
 			RedirectAttributes redirectAtt) {
 		
 		try {
@@ -90,7 +91,7 @@ public class EventoController {
 	}
 	
 	@RequestMapping("/deletar/{id}")
-	public String deletar(@PathVariable(name="id") Long id,
+	public String deletar(@PathVariable(name="id") Integer id,
 						  RedirectAttributes redirectAtt) {
 		Evento evento = dao.buscarPorId(Evento.class, id);		
 		dao.deletar(evento);

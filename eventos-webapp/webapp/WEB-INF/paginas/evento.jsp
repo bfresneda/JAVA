@@ -74,26 +74,35 @@
 			<label>Preço:</label>
 			<form:input path="preco" type="" cssClass="form-control"/>
 			</div>
-
-
+			
+			
 			<div class="form-group col-md-4">
-			<form:select path="CasaDeShow" id="CasaDeShow"> 
+			<label>Casa de show:</label>
+			<input name="casaDeShow" Class="form-control"/>
+			</div>
+
+
+<!--  
+ 			<div class="form-group col-md-4">
+			<form:select path="casaDeShow" id="casaDeShow"> 
 				<form:option value="NONE">---SELECIONE---</form:option> 
 					<c:forEach items="${ListaCasasDeShows}" var="CasaDeShow"> 
 				<form:option value="${CasaDeShow.id}">${CasaDeShow.nome}</form:option> 
 			</c:forEach> </form:select>
 			</div>	
+-->
 
-			
-<!-- 			<div class="form-group col-md-4">
+<!-- 			
+ 			<div class="form-group col-md-4">
 		<label>Casa de Show:</label>
-				<select name="ListaCasasDeShows">
+				<select name="casaDeShow">
 						<option selected > Selecione a casa:</option>
 					<c:forEach  var="CasaDeShow" items="${ListaCasasDeShows}">
 						<option value ="${CasaDeShow.id}"> ${CasaDeShow.nome}</option>
 					</c:forEach>
 				</select>
-			</div>  -->
+			</div> 
+ --> 
   			
 <!--			<div class="form-group">
 				<label>Imagem</label>

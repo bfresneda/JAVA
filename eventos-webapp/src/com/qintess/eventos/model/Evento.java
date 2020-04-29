@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
@@ -20,9 +21,11 @@ public class Evento{
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@ManyToOne(fetch = FetchType.LAZY
+	
+	@ManyToOne(fetch = FetchType.EAGER
 			   ,cascade = CascadeType.ALL)
 	@MapsId("Evento")
+	@JoinColumn(name="id")
 	private CasaDeShow casaDeShow;
 	
 	@OneToMany(cascade = CascadeType.ALL
@@ -39,7 +42,7 @@ public class Evento{
 		
 	private int quantidadeIngressos;
 
-	private Long idCasaDeShowEvento;
+	private Integer idCasaDeShowEvento;
 	
 	private double preco;
 	
@@ -113,11 +116,11 @@ public class Evento{
 		this.quantidadeIngressosDisponiveis = quantidadeIngressosDisponiveis;
 	}
 
-	public Long getIdCasaDeShowEvento() {
+	public Integer getIdCasaDeShowEvento() {
 		return idCasaDeShowEvento;
 	}
 
-	public void setIdCasaDeShowEvento(Long idCasaDeShowEvento) {
+	public void setIdCasaDeShowEvento(Integer idCasaDeShowEvento) {
 		this.idCasaDeShowEvento = idCasaDeShowEvento;
 	}
 

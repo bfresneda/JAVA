@@ -52,7 +52,7 @@ public class DAO {
 
 	
 	@Transactional
-	public <T> T buscarPorId(Class<T> nomeClasse, Long id){
+	public <T> T buscarPorId(Class<T> nomeClasse, Integer id){
 		Session session = this.sessionFactory.getCurrentSession();
 		
 		return session.find(nomeClasse, id);
