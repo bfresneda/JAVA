@@ -4,14 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -20,10 +17,10 @@ public class Evento{
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@ManyToOne(fetch = FetchType.LAZY
-			   ,cascade = CascadeType.ALL)
-	@MapsId("Evento")
-	private CasaDeShow casaDeShow;
+//	@ManyToOne(fetch = FetchType.LAZY
+//			   ,cascade = CascadeType.ALL)
+//	@MapsId("Evento")
+//	private CasaDeShow casaDeShow;
 	
 	@OneToMany(cascade = CascadeType.ALL
 			,fetch = FetchType.LAZY
@@ -39,14 +36,14 @@ public class Evento{
 		
 	private int quantidadeIngressos;
 
-	private Long idCasaDeShowEvento;
+//	private Long idCasaDeShowEvento;
 	
 	private double preco;
 	
 	private int quantidadeIngressosDisponiveis;
 	
-	@Column(columnDefinition="bytea")
-	private byte[] imagemEvento;
+//	@Column(columnDefinition="bytea")
+//	private byte[] imagemEvento;
 	
 
 	public int getId() {
@@ -57,13 +54,13 @@ public class Evento{
 		this.id = id;
 	}
 
-	public CasaDeShow getCasaDeShow() {
-		return casaDeShow;
-	}
-
-	public void setCasaDeShow(CasaDeShow casaDeShow) {
-		this.casaDeShow = casaDeShow;
-	}
+//	public CasaDeShow getCasaDeShow() {
+//		return casaDeShow;
+//	}
+//
+//	public void setCasaDeShow(CasaDeShow casaDeShow) {
+//		this.casaDeShow = casaDeShow;
+//	}
 
 	public String getNome() {
 		return nome;
@@ -113,13 +110,13 @@ public class Evento{
 		this.quantidadeIngressosDisponiveis = quantidadeIngressosDisponiveis;
 	}
 
-	public Long getIdCasaDeShowEvento() {
-		return idCasaDeShowEvento;
-	}
-
-	public void setIdCasaDeShowEvento(Long idCasaDeShowEvento) {
-		this.idCasaDeShowEvento = idCasaDeShowEvento;
-	}
+//	public Long getIdCasaDeShowEvento() {
+//		return idCasaDeShowEvento;
+//	}
+//
+//	public void setIdCasaDeShowEvento(Long idCasaDeShowEvento) {
+//		this.idCasaDeShowEvento = idCasaDeShowEvento;
+//	}
 
 	public List<CompraIngresso> getListaIngressos() {
 		return listaIngressos;
@@ -129,13 +126,13 @@ public class Evento{
 		this.listaIngressos = listaIngressos;
 	}
 
-	public byte[] getImagemEvento() {
-		return imagemEvento;
-	}
-
-	public void setImagemEvento(byte[] imagemEvento) {
-		this.imagemEvento = imagemEvento;
-	}
+//	public byte[] getImagemEvento() {
+//		return imagemEvento;
+//	}
+//
+//	public void setImagemEvento(byte[] imagemEvento) {
+//		this.imagemEvento = imagemEvento;
+//	}
 	
 	
 	

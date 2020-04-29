@@ -1,17 +1,12 @@
 package com.qintess.eventos.model;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
 public class CasaDeShow {
@@ -44,11 +39,11 @@ public class CasaDeShow {
 	@Column(columnDefinition="bytea")
 	private byte[] imagemCasadeShow;
 
-	@OneToMany(cascade = CascadeType.ALL
-			   ,fetch = FetchType.LAZY
-			   ,mappedBy = "casaDeShow"
-			   ,orphanRemoval = true)			   
-	List<Evento> listaEventos = new ArrayList<>();
+//	@OneToMany(cascade = CascadeType.ALL
+//			   ,fetch = FetchType.LAZY
+//			   ,mappedBy = "casaDeShow"
+//			   ,orphanRemoval = true)			   
+//	List<Evento> listaEventos = new ArrayList<>();
 
 	@Override
 	public String toString() {
@@ -147,13 +142,13 @@ public class CasaDeShow {
 	}
 
 
-	public List<Evento> getListaEventos() {
-		return listaEventos;
-	}
-
-
-	public void setListaEventos(List<Evento> listaEventos) {
-		this.listaEventos = listaEventos;
-	}
+//	public List<Evento> getListaEventos() {
+//		return listaEventos;
+//	}
+//
+//
+//	public void setListaEventos(List<Evento> listaEventos) {
+//		this.listaEventos = listaEventos;
+//	}
 	
 }

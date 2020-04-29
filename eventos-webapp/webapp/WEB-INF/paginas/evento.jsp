@@ -41,19 +41,11 @@
 		<form:form action="${salvar}" cssClass="mb-2" modelAttribute="evento" acceptCharset="UTF-8" enctype="multipart/form-data">
 	<div class="form-row">
 			<form:hidden path="id"/>
-			<form:hidden path="imagemEvento"/>
 			<div class="form-group col-md-6">
 				<label>Nome:</label>
 				<form:input path="nome" cssClass="form-control"/>
 			</div>
 			
-			<div>
-				<c:if test="${evento.id ne 0 }"> <!-- ira carregar a imagem quando selecionar o alterar -->
-					<div class="col-6">
-					<img class="img-thumbnail" src="data:image/jpge;base64,${imagemEvento }"	 alt="imagem não encontrada" >
-					</div>
-				</c:if>
-			</div>
 			
 			<div class="form-group col-md-6">
 			<label>Descrição:</label>
@@ -75,33 +67,6 @@
 			<form:input path="preco" type="" cssClass="form-control"/>
 			</div>
 
-
-			<div class="form-group col-md-4">
-			<form:select path="CasaDeShow" id="CasaDeShow"> 
-				<form:option value="NONE">---SELECIONE---</form:option> 
-					<c:forEach items="${ListaCasasDeShows}" var="CasaDeShow"> 
-				<form:option value="${CasaDeShow.id}">${CasaDeShow.nome}</form:option> 
-			</c:forEach> </form:select>
-			</div>	
-
-			
-<!-- 			<div class="form-group col-md-4">
-		<label>Casa de Show:</label>
-				<select name="ListaCasasDeShows">
-						<option selected > Selecione a casa:</option>
-					<c:forEach  var="CasaDeShow" items="${ListaCasasDeShows}">
-						<option value ="${CasaDeShow.id}"> ${CasaDeShow.nome}</option>
-					</c:forEach>
-				</select>
-			</div>  -->
-  			
-<!--			<div class="form-group">
-				<label>Imagem</label>
-				<div class="custom-file">
-					<input type="file" name="imagemEvento" class="custom-file-input col-md-8" value="${imagemEvento}"/>
-					<label class="custom-file-label">Escolha uma imagem</label>
-				</div> 
-			</div> -->
 </div>
 			<div>
 				<input	class ="btn btn-primary mt-3 mr-2" type="submit" name="Salvar" value="${evento.id == 0 ? 'Cadastrar' : 'Alterar'}"/>

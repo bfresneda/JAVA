@@ -64,7 +64,7 @@ public class CasaDeShowController {
 	
 	
 	@RequestMapping("/alterar/{id}")
-	public String alterar(@PathVariable(name="id") int id, Model model,
+	public String alterar(@PathVariable(name="id") Long id, Model model,
 			RedirectAttributes redirectAtt) {
 		
 		try {
@@ -83,7 +83,7 @@ public class CasaDeShowController {
 	}
 
 	@RequestMapping("/deletar/{id}")
-	public String deletar(@PathVariable(name="id") int id,
+	public String deletar(@PathVariable(name="id") Long id,
 						  RedirectAttributes redirectAtt) {
 		CasaDeShow casadeshow = dao.buscarPorId(CasaDeShow.class, id);		
 		dao.deletar(casadeshow);
